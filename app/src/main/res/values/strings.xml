@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Wallet</string>
+    <string name="enter_your_debit_details">Enter your debit details?</string>
+    <string name="amount">Amount</string>
+    <string name="source">Source</string>
+    <string name="submit">Submit</string>
 </resources>
