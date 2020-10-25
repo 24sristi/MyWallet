@@ -42,7 +42,9 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="Your One Stop for money management!!"
+            android:textStyle="bold"
             android:textAlignment="center"
+            android:fontFamily="serif-monospace"
             android:textColor="#707070"
 
             android:textSize="20sp" />
@@ -52,15 +54,21 @@
             android:id="@+id/credit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:shadowColor="@color/black"
+            android:shadowDx="24"
             android:text="Credit"
-            app:backgroundTint="#707070" />
+            app:backgroundTint="#707070"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/debit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:shadowColor="@color/black"
+            android:shadowDx="24"
             android:text="Debit"
-            app:backgroundTint="#707070" />
+            app:backgroundTint="#707070"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/statement"
