@@ -13,6 +13,7 @@ public class Credit extends AppCompatActivity {
     EditText creditamount;
     EditText creditreason;
     DatabaseHandler dbHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +25,7 @@ public class Credit extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Do something in response to button click
-                dbHandler.addcredit(creditamount.getText().toString(),creditreason.getText().toString());
+                dbHandler.addEntry("credit",creditamount.getText().toString(),creditreason.getText().toString());
             }
         });
 

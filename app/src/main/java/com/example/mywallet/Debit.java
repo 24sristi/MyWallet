@@ -12,6 +12,7 @@ public class Debit extends AppCompatActivity {
     EditText debitamount;
     EditText debitreason;
     DatabaseHandler dbHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +24,7 @@ public class Debit extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Do something in response to button click
-                dbHandler.addcredit(debitamount.getText().toString(),debitreason.getText().toString());
+                dbHandler.addEntry("debit",debitamount.getText().toString(),debitreason.getText().toString());
             }
         });
     }

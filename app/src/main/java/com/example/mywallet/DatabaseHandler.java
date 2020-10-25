@@ -2,6 +2,8 @@ package com.example.mywallet;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -40,10 +42,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public void addcredit(String amount, String reason) {
+    public void addEntry(String transactionType, String amount, String reason) {
         ContentValues values = new ContentValues();
 
-        values.put(COLUMN_TYPE, "credit");
+        values.put(COLUMN_TYPE, transactionType);
         values.put(COLUMN_AMOUNT, amount);
         values.put(COLUMN_REASON, reason);
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -53,5 +55,29 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    public String getTotal(){
+        String transactionType;
+        Integer currentAmount,totalAmount=0;
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT "+COLUMN_TYPE+", "+COLUMN_AMOUNT+" FROM " + TABLE_WALLET;
+
+        Cursor c = db.rawQuery(query, null);
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            if (c.getString(c.getColumnIndex(COLUMN_TYPE)) != null) {
+                currentAmount= Integer.parseInt(c.getString(c.getColumnIndex(COLUMN_AMOUNT)));
+                transactionType=c.getString(c.getColumnIndex(COLUMN_TYPE));
+
+                if(transactionType.equals("credit")) {
+                    totalAmount+=currentAmount;
+                }
+                else {
+                    totalAmount-=currentAmount;
+                }
+            }
+            c.moveToNext();
+        }
+        return totalAmount.toString();
+    }
 
 }

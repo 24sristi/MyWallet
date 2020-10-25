@@ -4,12 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFD449"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="279dp"
+        android:layout_height="434dp"
+        android:layout_gravity="right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/boy_with_wallet" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFD449"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="129dp"
         tools:layout_editor_absoluteY="211dp">
@@ -54,24 +63,16 @@
             app:backgroundTint="#707070" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/statement"
             android:layout_width="match_parent"
             android:layout_height="37dp"
-            android:textSize="24dp"
+            android:gravity="center_horizontal"
             android:textAlignment="center"
             android:textColor="#707070"
-            android:text="Current amount in wallet is"
-            android:gravity="center_horizontal" />
+            android:textSize="24dp" />
 
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="279dp"
-        android:layout_height="434dp"
-        android:layout_gravity="right"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/boy_with_wallet" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
