@@ -26,6 +26,8 @@ public class Credit extends AppCompatActivity {
             public void onClick(View v) {
                 // Do something in response to button click
                 dbHandler.addEntry("credit",creditamount.getText().toString(),creditreason.getText().toString());
+                creditamount.setText("");
+                creditreason.setText("");
             }
         });
 

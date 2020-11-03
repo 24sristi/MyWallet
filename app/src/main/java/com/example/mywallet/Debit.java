@@ -25,6 +25,8 @@ public class Debit extends AppCompatActivity {
             public void onClick(View v) {
                 // Do something in response to button click
                 dbHandler.addEntry("debit",debitamount.getText().toString(),debitreason.getText().toString());
+                debitamount.setText("");
+                debitreason.setText("");
             }
         });
     }

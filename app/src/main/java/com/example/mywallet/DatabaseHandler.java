@@ -6,10 +6,17 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
+import java.util.Date;
 
 
 public class DatabaseHandler extends SQLiteOpenHelper {
@@ -80,10 +87,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return totalAmount.toString();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public String databaseToString() {
         String DBString = "";
-        Integer amount;
-        String type, reason;
+        String type,sign,amount;
         SQLiteDatabase db = getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_WALLET;
 
@@ -91,13 +98,31 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         c.moveToFirst();
         while (!c.isAfterLast()) {
             if (c.getString(c.getColumnIndex(COLUMN_TIMESTAMP)) != null) {
-                DBString += String.format("%10.10s", c.getString(c.getColumnIndex(COLUMN_TIMESTAMP)));
-                DBString += "   ";
+
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+                Date parsedDate = null;
+
+                SimpleDateFormat dt1 = new SimpleDateFormat("dd MMM hh:mm a");
+                System.out.println();
+                try {
+                    parsedDate = dateFormat.parse(c.getString(c.getColumnIndex(COLUMN_TIMESTAMP)));
+                    DBString +=(" "+dt1.format(parsedDate));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                DBString += "  ";
 
                 // get all details
 
-                DBString += (c.getString(c.getColumnIndex(COLUMN_TYPE)) + " ");
-                DBString += (c.getString(c.getColumnIndex(COLUMN_AMOUNT)) + " ");
+                type = c.getString(c.getColumnIndex(COLUMN_TYPE));
+                if(type.equals("debit"))
+                    sign="-";
+                else
+                    sign="+";
+
+                amount =sign+c.getString(c.getColumnIndex(COLUMN_AMOUNT));
+                DBString += ( String.format("%6.5s",amount)+ "  ");
                 DBString += (c.getString(c.getColumnIndex(COLUMN_REASON)) + " ");
 
                 DBString += "\n";

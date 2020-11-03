@@ -36,9 +36,9 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:fontFamily="monospace"
-        android:text="      Time  Type Amount Reason   "
+        android:text="  Date   Time     Amount  Reason   "
         android:textColor="#707070"
-        android:textSize="17sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <TextView
@@ -46,8 +46,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
-        android:text="@string/textview"
+        android:text="History"
         android:textColor="#FFFFFF"
-        android:textSize="17sp" />
+        android:textSize="15sp" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

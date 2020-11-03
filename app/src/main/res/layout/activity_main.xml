@@ -17,8 +17,13 @@
         app:srcCompat="@drawable/boy_with_wallet" />
 
     <LinearLayout
+
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
         android:orientation="vertical"
         tools:layout_editor_absoluteX="129dp"
         tools:layout_editor_absoluteY="211dp">
@@ -40,35 +45,43 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="serif-monospace"
             android:gravity="center_horizontal"
             android:text="Your One Stop for money management!!"
-            android:textStyle="bold"
             android:textAlignment="center"
-            android:fontFamily="serif-monospace"
             android:textColor="#707070"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-            android:textSize="20sp" />
-
-
-        <Button
-            android:id="@+id/credit"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:shadowColor="@color/black"
-            android:shadowDx="24"
-            android:text="Credit"
-            app:backgroundTint="#707070"
-            android:textStyle="bold"/>
+            android:orientation="horizontal"
+            android:layout_height="100dp">
 
-        <Button
-            android:id="@+id/debit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:shadowColor="@color/black"
-            android:shadowDx="24"
-            android:text="Debit"
-            app:backgroundTint="#707070"
-            android:textStyle="bold"/>
+            <Button
+                android:layout_margin="17dp"
+                android:id="@+id/credit"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:shadowColor="@color/black"
+                android:text="add Credit"
+                android:textStyle="bold"
+                app:backgroundTint="#707070" />
+
+            <Button
+                android:layout_margin="17dp"
+                android:id="@+id/debit"
+                android:layout_weight="1"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:shadowColor="@color/black"
+                android:shadowDx="24"
+                android:text="add Debit"
+                android:textStyle="bold"
+                app:backgroundTint="#707070" />
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/statement"
@@ -79,16 +92,22 @@
             android:textColor="#707070"
             android:textSize="24dp" />
 
-        <Button
-            android:id="@+id/history"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Transaction History"
-
-            android:backgroundTint="#707070"/>
-
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:backgroundTint="#707070"
+        android:text="view Transaction History"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
