@@ -80,4 +80,34 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return totalAmount.toString();
     }
 
+    public String databaseToString() {
+        String DBString = "";
+        Integer amount;
+        String type, reason;
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_WALLET;
+
+        Cursor c = db.rawQuery(query, null);
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            if (c.getString(c.getColumnIndex(COLUMN_TIMESTAMP)) != null) {
+                DBString += String.format("%10.10s", c.getString(c.getColumnIndex(COLUMN_TIMESTAMP)));
+                DBString += "   ";
+
+                // get all details
+
+                DBString += (c.getString(c.getColumnIndex(COLUMN_TYPE)) + " ");
+                DBString += (c.getString(c.getColumnIndex(COLUMN_AMOUNT)) + " ");
+                DBString += (c.getString(c.getColumnIndex(COLUMN_REASON)) + " ");
+
+                DBString += "\n";
+
+            }
+            c.moveToNext();
+        }
+        return DBString;
+    }
+
+
+
 }

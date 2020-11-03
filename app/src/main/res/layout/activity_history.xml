@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFD449"
+    tools:context=".History"
+    android:orientation="vertical">
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:text=""
+        android:textColor="#101010"
+        android:textSize="20sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        android:fontFamily="serif"
+        android:gravity="center_horizontal"
+        android:shadowColor="#00EB0808"
+        android:shadowRadius="20"
+        android:text="TRANSACTION HISTORY"
+        android:textColor="#232323"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:fontFamily="monospace"
+        android:text="      Time  Type Amount Reason   "
+        android:textColor="#707070"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="@string/textview"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

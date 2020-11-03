@@ -11,8 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyWallet"
         tools:ignore="ExtraText">
-        <activity android:name=".Debit"></activity>
-        <activity android:name=".Credit"></activity>
+        <activity android:name=".History"></activity>
+        <activity android:name=".Debit" />
+        <activity android:name=".Credit" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

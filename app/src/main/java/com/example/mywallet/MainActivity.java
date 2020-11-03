@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button credit = (Button) findViewById(R.id.credit);
         Button debit = (Button) findViewById(R.id.debit);
+        Button history = (Button) findViewById(R.id.history);
         credit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //open credit page
@@ -29,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //open debit page
                 Intent intent = new Intent(getApplicationContext(), Debit.class);
+                startActivity(intent);
+            }
+        });
+        history.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //open history page
+                Intent intent = new Intent(getApplicationContext(), History.class);
                 startActivity(intent);
             }
         });
