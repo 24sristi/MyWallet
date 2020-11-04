@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
         android:text="History"
-        android:textColor="#FFFFFF"
+        android:textColor="#232323"
         android:textSize="15sp" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
