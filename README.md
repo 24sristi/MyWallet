@@ -15,15 +15,6 @@ Finally, there is also an option to access the history, wherein there is a table
 
 Android Development by Java, SQLite Database to create and retrieve entries.
 
-# Mentee
-
-Name: Sristi Sharma 
-Github Id: https://github.com/24sristi
-
-# Mentor
-
-Name: Maitreyi Sondhi
-Github Id: https://github.com/maitreyi0505
 
 # Get started
 
